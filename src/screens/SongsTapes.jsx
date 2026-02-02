@@ -1,9 +1,9 @@
 import { useRef, useState } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import waalian from "../assets/songs/Saiyaara.mp3";
-import lagJaaGale from "../assets/songs/Saiyaara.mp3";
-import perfect from "../assets/songs/Saiyaara.mp3";
+import Saiyaara from "../assets/songs/Saiyaara.mp3";
+import Mero_Mann from "../assets/songs/Mero_Mann.webm";
+import Challa from "../assets/songs/Challa.mp3";
 
 /* ================= SCREEN ================= */
 
@@ -167,9 +167,9 @@ const WindowText = styled(motion.div)`
 /* ================= CONTROLS ================= */
 
 const Controls = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   margin-top: 14px;
 `;
 
@@ -179,6 +179,8 @@ const Time = styled.span`
 `;
 
 const PlayButton = styled(motion.button)`
+  position: absolute;
+  left: 50%;
   width: 48px;
   height: 48px;
   border-radius: 50%;
@@ -190,10 +192,35 @@ const PlayButton = styled(motion.button)`
   box-shadow: 0 6px 14px rgba(240, 98, 146, 0.45);
 `;
 
+const GlowRing = styled(motion.div)`
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(240, 98, 146, 0.35);
+  filter: blur(8px);
+  pointer-events: none;
+`;
+
+
+const PlayIcon = styled.span`
+  display: inline-flex;
+  width: 20px;      /* 🔑 fixed width */
+  justify-content: center;
+  font-size: 18px;
+  line-height: 1;
+`;
+
+
+
 const Heart = styled.span`
+  margin-left: auto;
   font-size: 20px;
   cursor: pointer;
 `;
+
 
 const NextButton = styled(motion.button)`
   margin-top: 18px;
@@ -214,28 +241,31 @@ const NextButton = styled(motion.button)`
 export default function SongsTape({setStep}) {
   const songs = [
   {
-    title: "Waalian",
-    mood: "Some feelings feel calm and deep 🌙",
+    title: "Saiyaara",
+    mood: "Feels like longing 🌙",
     tilt: -10,
-    src: waalian,
+    src: Saiyaara,
     bodyColor: "#f3e2d4",
     labelColor: "#fde1ea",
+    pulseSpeed: 1.8,
   },
   {
-    title: "Lag Jaa Gale",
-    mood: "Because closeness matters 🤍",
+    title: "Mero Mann",
+    mood: "Soft pahadi romance 💕",
     tilt: 2,
-    src: lagJaaGale,
+    src: Mero_Mann,
     bodyColor: "#e6f2dc",
     labelColor: "#fde1ea",
+    pulseSpeed: 1.4,
   },
   {
-    title: "Perfect",
-    mood: "Just us, just right 💕",
+    title: "Challa",
+    mood: "Quiet, deep love 🤍",
     tilt: -2,
-    src: perfect,
+    src: Challa,
     bodyColor: "#edf0f5",
     labelColor: "#fde1ea",
+    pulseSpeed: 1.1,
   },
 ];
 
@@ -311,19 +341,20 @@ const [duration, setDuration] = useState({});
 
 <Window>
   {playing === index && (
-    <WindowText
-      initial={{ x: "100%" }}
-      animate={{ x: "-150%" }}
-      transition={{
-        duration: 7,       // slow = realistic
-        ease: "linear",     // constant tape speed
-        repeat: Infinity,
-        repeatDelay: 1.5,   // tiny pause before loop
-      }}
-    >
-      🎵 {song.title}
-    </WindowText>
-  )}
+  <GlowRing
+    initial={{ x: "-50%", y: "-50%", scale: 1, opacity: 0.4 }}
+    animate={{
+      scale: [1, 1.35, 1],
+      opacity: [0.35, 0.7, 0.35],
+    }}
+    transition={{
+      duration: songs[index].pulseSpeed,
+      repeat: Infinity,
+      ease: "easeInOut",
+    }}
+  />
+)}
+
 </Window>
 
                 <Reel
@@ -339,22 +370,74 @@ const [duration, setDuration] = useState({});
               </ReelRow>
             </TapeLabel>
 
-            <Controls>
-<Time>
-  {formatTime(currentTime[index])} / {formatTime(duration[index])}
-</Time>
+<Controls>
+  <Time>
+    {formatTime(currentTime[index])} / {formatTime(duration[index])}
+  </Time>
 
-              <PlayButton
-                whileTap={{ scale: 0.9 }}
-                onClick={() => togglePlay(index)}
-              >
-                {playing === index ? "❚❚" : "▶"}
-              </PlayButton>
+  {/* <PlayButton
+initial={{ x: "-50%" }}     // 👈 center
+  whileTap={{ scale: 0.9 }}   // 👈 safe now
+  onClick={() => togglePlay(index)}
+      animate={playing === index ? { scale: [1, 1.05, 1] } : {}}
+  transition={{ repeat: Infinity, duration: 1.5 }}
+  >
+    <PlayIcon>
+  {playing === index ? "❚❚" : "▶"}
+</PlayIcon>
 
-              <Heart onClick={() => toggleLike(index)}>
-                {liked[index] ? "❤️" : "🤍"}
-              </Heart>
-            </Controls>
+  </PlayButton> */}
+
+  {/* 💿 Glow + Play Button */}
+{playing === index && (
+  <GlowRing
+    initial={{ x: "-50%", y: "-50%", scale: 1, opacity: 0.6 }}
+    animate={{
+      scale: [1, 1.25, 1],
+      opacity: [0.5, 0.8, 0.5],
+    }}
+    transition={{
+      duration: 1.5,
+      repeat: Infinity,
+      ease: "easeInOut",
+    }}
+  />
+)}
+
+<PlayButton
+  initial={{ x: "-50%" }}
+  animate={
+    playing === index
+      ? {
+          scale: [1, 1.08, 1],
+          boxShadow: [
+            "0 6px 14px rgba(240,98,146,0.45)",
+            "0 10px 26px rgba(240,98,146,0.65)",
+            "0 6px 14px rgba(240,98,146,0.45)",
+          ],
+        }
+      : {
+          scale: 1,
+          boxShadow: "0 6px 14px rgba(240,98,146,0.45)",
+        }
+  }
+  transition={{
+    duration: 1,
+    repeat: playing === index ? Infinity : 0,
+    ease: "easeInOut",
+  }}
+  whileTap={{ scale: 0.9 }}
+  onClick={() => togglePlay(index)}
+>
+  {playing === index ? "❚❚" : "▶"}
+</PlayButton>
+
+
+  <Heart onClick={() => toggleLike(index)}>
+    {liked[index] ? "❤️" : "🤍"}
+  </Heart>
+</Controls>
+
 
 <audio
   ref={(el) => (audioRefs.current[index] = el)}

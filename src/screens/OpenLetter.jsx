@@ -16,6 +16,10 @@ const Screen = styled.div`
   padding: 16px 0;
 `;
 
+const Wrapper = styled.div`
+  width: 90%;
+`
+
 /* ---------- BACKGROUND CIRCLES ---------- */
 
 const Circle = styled.div`
@@ -236,7 +240,7 @@ export default function OpenLetter({ setStep }) {
   return (
     <Screen>
       <BgCircles />
-
+      <Wrapper>
       <ContentWrapper initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
         <TopText>Just because today feels right</TopText>
         <Heading>A Valentine Note 💌</Heading>
@@ -273,6 +277,7 @@ export default function OpenLetter({ setStep }) {
           Let’s Keep This Story Going 💫
         </NextButton>
       </ContentWrapper>
+      </Wrapper>
     </Screen>
   );
 }

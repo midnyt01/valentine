@@ -24,9 +24,12 @@ const Screen = styled.div`
   width: 100vw;
   background: #fff2f7;
   display: flex;
-  justify-content: center;
+  align-items: center;      /* ✅ vertical center */
+  justify-content: center;  /* ✅ horizontal center */
   padding: 24px 0 40px;
+  position: relative;
 `;
+
 
 /* ================= WRAPPER ================= */
 

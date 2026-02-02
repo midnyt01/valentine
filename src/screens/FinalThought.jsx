@@ -7,10 +7,24 @@ import { motion } from "framer-motion";
 const Screen = styled.div`
   min-height: 100vh;
   background: #fff2f7;
+  display: flex;
+  align-items: center;       /* ✅ vertical centering */
+  justify-content: center;   /* ✅ horizontal centering */
+  flex-direction: column;
   padding: 28px 16px 60px;
 `;
 
+
 /* ================= HEADER ================= */
+
+const CenterBlock = styled.div`
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 
 const Title = styled.h1`
   text-align: center;
@@ -23,8 +37,8 @@ const Title = styled.h1`
 /* ================= CARD ================= */
 
 const Card = styled.div`
-  max-width: 420px;
-  margin: auto;
+  max-width: 350px;
+  margin: 30px auto;
   background: #ffd9e8;
   border-radius: 22px;
   padding: 34px 22px 26px;
@@ -102,9 +116,10 @@ const LetterBox = styled.div`
 
 const Paragraph = styled.p`
   font-family: "Caveat", cursive;
-  font-size: 18px;
+  font-size: 19px;
   line-height: 1.6;
   color: #444;
+  font-weight: 600;
   margin-bottom: 16px;
 `;
 
@@ -112,6 +127,7 @@ const HeyText = styled.span`
   display: block;
   font-weight: 700;
   color: #f06292;
+  font-size: 27px;
   margin-bottom: 6px;
 `;
 
@@ -177,8 +193,8 @@ const dots = keyframes`
 `;
 
 const LoadingText = styled.div`
+  font-family: "Caveat", cursive;
   margin-top: 14px;
-  font-family: "Poppins", sans-serif;
   font-size: 15px;
   color: #555;
 
@@ -220,9 +236,9 @@ export default function FinalLoveLetter({ setStep }) {
   const [sealed, setSealed] = useState(false);
 
   const paragraphs = [
-    "This wasn’t about perfection, just honesty.",
-    "I wanted you to feel appreciated today.",
-    "Whatever comes next, I’m glad this moment exists.",
+    "T his wasn’t about perfection, just honesty.",
+    "I  wanted you to feel appreciated today.",
+    "W hatever comes next, I’m glad this moment exists.",
   ];
 
   useEffect(() => {
@@ -237,6 +253,7 @@ export default function FinalLoveLetter({ setStep }) {
   return (
     <>
       <Screen>
+        <CenterBlock>
         <Title>One Last Valentine Thought</Title>
 
         <Card>
@@ -268,6 +285,7 @@ export default function FinalLoveLetter({ setStep }) {
     </RestartButton>
   </ButtonRow>
 </Card>
+</CenterBlock>
 
       </Screen>
 

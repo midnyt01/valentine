@@ -1,6 +1,13 @@
+import { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { motion } from "framer-motion";
-import stitch from "../assets/stitch_ball.gif"
+import stitch from "../assets/stitch_ball.gif";
+
+import {
+  preloadAssets,
+  imagesToPreload,
+  audioToPreload,
+} from "../utils/PreLoadAssets";
 
 /* ---------- DOT ANIMATION ---------- */
 
@@ -77,6 +84,20 @@ const Dot = styled.span`
 /* ---------- COMPONENT ---------- */
 
 export default function LoadingScreen() {
+
+  const [progress, setProgress] = useState(0);
+useEffect(() => {
+  
+    preloadAssets(imagesToPreload, audioToPreload, setProgress);
+
+    // Fallback: minimum 3s loader (UX polish)
+    const minTimer = setTimeout(() => {
+      if (progress === 100) setStep(2);
+    }, 4000);
+
+    return () => clearTimeout(minTimer);
+  }, []);
+
   return (
     <Screen>
       <Character

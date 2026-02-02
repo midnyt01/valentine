@@ -8,11 +8,21 @@ const Screen = styled.div`
   width: 100vw;
   background: #fff2f7;
   display: flex;
-  justify-content: center;
+  align-items: center;        /* ✅ vertical center */
+  justify-content: center;    /* ✅ horizontal center */
   position: relative;
   overflow: hidden;
   padding: 24px 0;
 `;
+
+const CenterBlock = styled.div`
+  width: 90%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 
 /* ---------- FALLING PETALS ---------- */
 
@@ -73,6 +83,12 @@ const HeartCircle = styled(motion.div)`
   font-size: 36px;
 `;
 
+const HeartEmoji = styled(motion.span)`
+  font-size: 36px;
+  line-height: 1;
+`;
+
+
 /* ---------- MAIN TEXT ---------- */
 
 const MainText = styled.h2`
@@ -99,7 +115,7 @@ const HeartRow = styled.div`
 `;
 
 const SmallHeart = styled(motion.span)`
-  font-size: 14px;
+  font-size: 20px;
 `;
 
 /* ---------- SIGNATURE ---------- */
@@ -161,6 +177,8 @@ export default function FinalScreen({ setStep }) {
         </Petal>
       ))}
 
+        <CenterBlock>
+
       <Wrapper
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
@@ -170,12 +188,15 @@ export default function FinalScreen({ setStep }) {
         <Title>One Last Valentine Thought</Title>
 
         <Card>
-          <HeartCircle
-            animate={{ scale: [1, 1.08, 1] }}
-            transition={{ repeat: Infinity, duration: 2 }}
-          >
-            💝
-          </HeartCircle>
+          <HeartCircle>
+  <HeartEmoji
+    animate={{ scale: [1, 1.12, 1] }}
+    transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+  >
+    💝
+  </HeartEmoji>
+</HeartCircle>
+
 
           <MainText>Sent With Care</MainText>
           <SubText>Just For You</SubText>
@@ -207,6 +228,7 @@ export default function FinalScreen({ setStep }) {
           </FinalButton>
         </Card>
       </Wrapper>
+      </CenterBlock>
     </Screen>
   );
 }

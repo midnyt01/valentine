@@ -17,13 +17,17 @@ import FinalThought from "./screens/FinalThought";
 import FinalScreen from "./screens/FinalScreen";
 
 export default function App() {
-  const [step, setStep] = useState(10);
+  const [step, setStep] = useState(1);
 
   useEffect(() => {
     if (step === 1) {
       const timer = setTimeout(() => setStep(2), 4000);
       return () => clearTimeout(timer);
     }
+  }, [step]);
+
+    useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, [step]);
 
   return (
