@@ -17,7 +17,7 @@ import FinalThought from "./screens/FinalThought";
 import FinalScreen from "./screens/FinalScreen";
 
 export default function App() {
-  const [step, setStep] = useState(8);
+  const [step, setStep] = useState(1);
 
   useEffect(() => {
     if (step === 1) {
