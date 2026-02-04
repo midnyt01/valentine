@@ -164,7 +164,7 @@ const NextButton = styled(motion.button)`
 
 const reasons = [
   { icon: "💖", title: "Genuine Heart", front: "You care in ways that feel real", back: "You don’t try to impress — you simply show up honestly." },
-  { icon: "🌿", title: "Calm Presence", front: "Being with you feels peaceful", back: "You make even chaos feel manageable." },
+  { icon: "🌿", title: "Gentle Energy", front: "Your presence never overwhelms it soothes.", back: "Being with you feels natural and right." },
   { icon: "✨", title: "Pure Intentions", front: "Your actions feel thoughtful", back: "There’s no hidden agenda — just sincerity." },
   { icon: "🫶", title: "Emotional Safety", front: "It’s easy to be myself", back: "I never feel judged around you." },
   { icon: "🌸", title: "Soft Strength", front: "You’re gentle yet strong", back: "You hold your ground without hurting others." },
