@@ -1,9 +1,9 @@
 // IMAGES
-import photo1 from "../assets/photo1.jpg";
-import photo2 from "../assets/photo1.jpg";
-import photo3 from "../assets/photo1.jpg";
-import photo4 from "../assets/photo1.jpg";
-import photo5 from "../assets/photo1.jpg";
+import photo1 from "../assets/photo1.png";
+import photo2 from "../assets/photo2.png";
+import photo3 from "../assets/photo3.png";
+import photo4 from "../assets/photo4.png";
+import photo5 from "../assets/photo5.png";
 // SONGS
 import Saiyaara from "../assets/songs/Saiyaara.mp3";
 import MeroMann from "../assets/songs/Mero_Mann.webm";

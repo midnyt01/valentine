@@ -56,7 +56,7 @@ const SmallText = styled.p`
 const Title = styled.h1`
   font-family: "DynaPuff", cursive;
   color: #f06292;
-  font-size: 34px;
+  font-size: 33px;
   margin-bottom: 24px;
 `;
 
@@ -134,10 +134,11 @@ const Signature = styled.div`
 `;
 
 const DateText = styled.div`
-  font-family: "Poppins", sans-serif;
+  font-family: "Caveat", cursive;
   color: #6d4b5c;
-  font-size: 13px;
+  font-size: 15px;
   margin-top: 4px;
+  font-weight: 500; 
 `;
 
 /* ---------- BUTTON ---------- */
@@ -216,7 +217,7 @@ export default function FinalScreen({ setStep }) {
 
           <SignatureBox>
             <Signature>Always 💞</Signature>
-            <DateText>Sunday, January 18, 2026</DateText>
+            <DateText>Handle gently. Contains feelings.</DateText>
           </SignatureBox>
 
           <FinalButton

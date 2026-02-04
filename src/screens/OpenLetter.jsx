@@ -51,6 +51,7 @@ const ContentWrapper = styled(motion.div)`
   flex-direction: column;
   align-items: center;
   text-align: center;
+      margin: auto
 `;
 
 /* ---------- HEADER ---------- */
@@ -228,11 +229,12 @@ function TypewriterParagraph({ text, active, onComplete }) {
 
 export default function OpenLetter({ setStep }) {
   const paragraphs = [
-    "I  wanted to do something special today, simply because you matter to me. Valentine’s Day isn’t about grand gestures—it’s about the feeling of choosing someone, even in the quiet moments.",
-    "I  admire the way you care, understand, and bring calm positivity into my world. Being around you feels safe, natural, and real.",
-    "I  appreciate your honesty, your kindness, and the way you show up as yourself.",
-    "I  don’t know where this path leads, but I’d like to take a step forward and see where this connection can grow—at its own pace, in its own time.",
-    "N o pressure, no expectations—just something sincere, from the heart."
+    "I  wanted to do something a little special today — not because Valentine’s Day needs grand gestures, but because you matter to me.",
+    "I ’ve realized that the best moments aren’t loud or dramatic. They’re the quiet ones — choosing someone, smiling at small things, feeling comfortable just being yourself. That’s what this feels like with you.",
+    "I  really admire the way you care, the way you understand, and the calm happiness you bring into my world. Being around you feels easy, natural, and genuinely real — and that’s rare.",
+    "I  appreciate your honesty, your kindness, and the way you show up as you, without trying to be anything else.",
+    "I  don’t know where life will take us, but I know I’m really happy walking this path with you — one step at a time.",
+    "N o pressure. No expectations. Just something sincere — and very much from the heart."
   ];
 
   const [current, setCurrent] = useState(0);

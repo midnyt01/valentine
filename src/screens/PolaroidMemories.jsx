@@ -4,11 +4,11 @@ import { motion } from "framer-motion";
 import petal from "../assets/petal.png";
 import heart from "../assets/heart.png";
 
-import photo1 from "../assets/photo1.jpg";
-import photo2 from "../assets/photo1.jpg";
-import photo3 from "../assets/photo1.jpg";
-import photo4 from "../assets/photo1.jpg";
-import photo5 from "../assets/photo1.jpg";
+import photo1 from "../assets/photo1.png";
+import photo2 from "../assets/photo2.png";
+import photo3 from "../assets/photo3.png";
+import photo4 from "../assets/photo4.png";
+import photo5 from "../assets/photo5.png";
 
 /* ================= FALLING ANIMATION ================= */
 
@@ -171,11 +171,11 @@ const FinalButton = styled(motion.button)`
 /* ================= DATA ================= */
 
 const memories = [
-  { img: photo1, text: "Us?", emoji: "🥺" },
-  { img: photo2, text: "That day felt right", emoji: "🤍" },
-  { img: photo3, text: "My favorite smile", emoji: "✨" },
-  { img: photo4, text: "Soft moments", emoji: "🌸" },
-  { img: photo5, text: "Always you", emoji: "💖" },
+  { img: photo1, text: "Goofing around, as usual", emoji: "💗" },
+  { img: photo2, text: "Cuteness level: unfair", emoji: "🥹" },
+  { img: photo3, text: "Exhausted, but together", emoji: "😴" },
+  { img: photo4, text: "Her smile gave me away", emoji: "💕" },
+  { img: photo5, text: "Watching her shine is my favorite", emoji: "🫶" },
 ];
 
 /* ================= COMPONENT ================= */
@@ -186,8 +186,8 @@ export default function PolaroidMemories({ setStep }) {
       <FallingDecor />
 
       <Header>
-        <Title>Some random thoughts</Title>
-        <Subtitle>Simple thoughts, genuine feelings 🤍</Subtitle>
+        <Title>Little Things, Big Feelings</Title>
+        <Subtitle>Some of us. Some of you. All special 🤍</Subtitle>
       </Header>
 
       <Grid>

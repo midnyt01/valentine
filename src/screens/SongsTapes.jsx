@@ -243,7 +243,7 @@ export default function SongsTape({setStep}) {
   {
     title: "Saiyaara",
     mood: "Feels like longing 🌙",
-    tilt: -10,
+    tilt: -20,
     src: Saiyaara,
     bodyColor: "#f3e2d4",
     labelColor: "#fde1ea",
@@ -341,18 +341,18 @@ const [duration, setDuration] = useState({});
 
 <Window>
   {playing === index && (
-  <GlowRing
-    initial={{ x: "-50%", y: "-50%", scale: 1, opacity: 0.4 }}
-    animate={{
-      scale: [1, 1.35, 1],
-      opacity: [0.35, 0.7, 0.35],
-    }}
-    transition={{
-      duration: songs[index].pulseSpeed,
-      repeat: Infinity,
-      ease: "easeInOut",
-    }}
-  />
+      <WindowText
+      initial={{ x: "100%" }}
+      animate={{ x: "-160%" }}
+      transition={{
+        duration: 6 + song.title.length * 0.25, // 🎵 longer titles = slower scroll
+        ease: "linear",
+        repeat: Infinity,
+        repeatDelay: 0.8, // tiny pause like real decks
+      }}
+    >
+      🎵 {song.title}
+    </WindowText>
 )}
 
 </Window>

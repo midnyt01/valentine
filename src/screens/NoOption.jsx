@@ -98,14 +98,14 @@ export default function NoOption({ setStep }) {
         animate={{ rotate: [ -2, 2, -2, 2, 0 ] }}
         transition={{ duration: 0.6 }}
       >
-        <Heading>Oops 😈</Heading>
+        <Heading>Plot twist 😈</Heading>
 
         <Message>
           That button was just for decoration.<br />
           You don’t really have a choice here 💕
         </Message>
 
-        <Hint>Let’s try that again, shall we?</Hint>
+        <Hint>We both know how this ends</Hint>
 
         <Button
           whileTap={{ scale: 0.9 }}

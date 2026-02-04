@@ -3,6 +3,58 @@ import { motion } from "framer-motion";
 import cute1 from "../assets/cute1.png"
 import cute2 from "../assets/cute2.gif"
 
+import { useEffect, useState } from "react";
+import { keyframes } from "styled-components";
+
+/* ---------- CARET BLINK ---------- */
+
+const blink = keyframes`
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+`;
+
+/* ---------- TYPEWRITER STYLES ---------- */
+
+const TypeText = styled.p`
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  color: #f06292;
+  margin-bottom: 24px;
+  display: inline-flex;
+  align-items: center;
+`;
+
+const Caret = styled.span`
+  margin-left: 2px;
+  animation: ${blink} 1s infinite;
+`;
+
+/* ---------- TYPEWRITER LOGIC ---------- */
+
+function Typewriter({ text, speed = 45 }) {
+  const [visible, setVisible] = useState("");
+
+  useEffect(() => {
+    let i = 0;
+    const interval = setInterval(() => {
+      setVisible((prev) => prev + text.charAt(i));
+      i++;
+      if (i >= text.length) clearInterval(interval);
+    }, speed);
+
+    return () => clearInterval(interval);
+  }, [text, speed]);
+
+  return (
+    <TypeText>
+      {visible}
+      <Caret>|</Caret>
+    </TypeText>
+  );
+}
+
+
 /* ---------- SCREEN ---------- */
 
 
@@ -105,14 +157,15 @@ const Dot = styled.span`
 
 /* ---------- FLOATING IMAGES ---------- */
 
-const FloatImg = styled.img`
+const FloatImg = styled(motion.img)`
   position: absolute;
   width: 64px;
 `;
 
 const TopRightImg = styled(FloatImg)`
-  top: -30px;
-  right: -30px;
+  top: -75px;
+  right: -70px;
+  width:160px;
 transform: scale(2.5);
 `;
 
@@ -193,7 +246,7 @@ export default function ValentineQuestion({ setStep }) {
       <BgCircles />
 
       <ContentWrapper>
-        <TopText>Hey, I have made something special for you...</TopText>
+        <TopText>Warning: this page contains feelings.</TopText>
 
         <Heading>
           Will You Be My <br /> Valentine? 💖
@@ -208,14 +261,27 @@ export default function ValentineQuestion({ setStep }) {
           </Dots>
 
           {/* Floating Images */}
-          <TopRightImg src={cute1} alt="cute" />
+          <TopRightImg
+  src={cute1}
+  alt="cute"
+  animate={{
+    y: [0, -10, 0],
+    rotate: [-2, 2, -2],
+  }}
+  transition={{
+    duration: 4,
+    repeat: Infinity,
+    ease: "easeInOut",
+  }}
+/>
           <BottomLeftImg src={cute2} alt="cute" />
 
           <CardText>
-            A little reminder of what this day feels like with you.
+            Suit up. This Valentine adventure going to be legendary.
           </CardText>
 
-          <Hint>Tap below when you’re ready ✨</Hint>
+          <Typewriter text="G o with the feeling. It’s usually right.✨" speed={50} />
+
 
           <Buttons>
             <YesButton whileTap={{ scale: 0.9 }} onClick={() => setStep(4)}>
