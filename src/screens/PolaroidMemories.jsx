@@ -174,8 +174,8 @@ const memories = [
   { img: photo1, text: "Goofing around, as usual", emoji: "💗" },
   { img: photo2, text: "Cuteness level: unfair", emoji: "🥹" },
   { img: photo3, text: "Exhausted, but together", emoji: "😴" },
-  { img: photo4, text: "Her smile gave me away", emoji: "💕" },
-  { img: photo5, text: "Watching her shine is my favorite", emoji: "🫶" },
+  { img: photo4, text: "Your smile gave me away", emoji: "💕" },
+  { img: photo5, text: "Watching you shine is my favorite", emoji: "🫶" },
 ];
 
 /* ================= COMPONENT ================= */
